@@ -1,0 +1,39 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "gg-app-messaging-ionic": {
+      "projectType": "library",
+      "root": "projects/gg-app-messaging-ionic",
+      "sourceRoot": "projects/gg-app-messaging-ionic/src",
+      "prefix": "gg",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/gg-app-messaging-ionic/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/gg-app-messaging-ionic/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/gg-app-messaging-ionic/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/gg-app-messaging-ionic/src/test.ts",
+            "tsConfig": "projects/gg-app-messaging-ionic/tsconfig.spec.json",
+            "karmaConfig": "projects/gg-app-messaging-ionic/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "gg-app-messaging-ionic"
+}
